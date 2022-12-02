@@ -6,14 +6,8 @@ foreach (var line in input)
 	var opponentX = line[0] - 'A';
 	var selfX = line[2] - 'X';
 
-	var pickScore = selfX switch
-	{
-		2 => Math.Abs((opponentX + 1) % 3) + 1,
-		1 => Math.Abs(opponentX % 3) + 1,
-		_ => Math.Abs((opponentX + 2) % 3) + 1
-	};
-
-	var roundScoreX = pickScore + selfX * 3;
+	var strategyBit = Math.Abs(selfX + 2) % 3;
+	var roundScoreX = Math.Abs((opponentX + strategyBit) % 3) + 1 + selfX * 3;
 	score += roundScoreX;
 }
 
