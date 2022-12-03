@@ -1,8 +1,2 @@
-﻿Console.WriteLine(File.ReadAllLines(Path.Combine(Directory.GetCurrentDirectory(), "input.txt"))
-	.Chunk(3)
-	.Select(chunk => chunk.Select(x => x.ToHashSet())
-	.Aggregate((current, prev) => current.Intersect(prev).ToHashSet())
-	.First())
-	.Sum(item => item is >= 'A' and <= 'Z' ? item - 'A' + 27 : item - 'a' + 1));
-
+﻿Console.WriteLine(File.ReadAllLines(Path.Combine(Directory.GetCurrentDirectory(), "input.txt")).Chunk(3).Select(x => x.Select(x => x.ToHashSet()).Aggregate((x, y) => x.Intersect(y).ToHashSet()).First()).Sum(x => x is >= 'A' and <= 'Z' ? x - 'A' + 27 : x - 'a' + 1));
 Console.ReadLine();
