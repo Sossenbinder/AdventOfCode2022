@@ -21,7 +21,7 @@ foreach (var line in input)
 					switch (target)
 					{
 						case "..":
-							currentDir = currentDir!.Parent;
+							currentDir = currentDir.Parent;
 							break;
 
 						case "/":
