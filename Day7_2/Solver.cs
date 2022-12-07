@@ -95,5 +95,5 @@ namespace Day7_2
 		public int Size => Directories.Values.Select(x => x.Size).Sum() + Files.Select(x => x.Size).Sum();
 	}
 
-	internal record FsFile(string Name, int Size);
+	internal record struct FsFile(string Name, int Size);
 }
