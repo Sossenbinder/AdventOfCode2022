@@ -31,34 +31,36 @@ namespace Day7_2
 				switch (commandSplit[0])
 				{
 					case "$":
-						switch (commandSplit[1])
 						{
-							case "ls":
-								break;
+							switch (commandSplit[1])
+							{
+								case "ls":
+									break;
 
-							case "cd":
-								var target = commandSplit[2];
-								switch (target)
-								{
-									case "..":
-										currentDir = currentDir!.Parent;
-										break;
-
-									case "/":
-										currentDir = baseDir;
-										break;
-
-									default:
-										{
-											var newDir = new Dir(new Dictionary<string, Dir>(), target, currentDir, new List<FsFile>());
-											currentDir.Directories.Add(newDir.Name, newDir);
-											currentDir = newDir;
+								case "cd":
+									var target = commandSplit[2];
+									switch (target)
+									{
+										case "..":
+											currentDir = currentDir!.Parent;
 											break;
-										}
-								}
-								break;
+
+										case "/":
+											currentDir = baseDir;
+											break;
+
+										default:
+											{
+												var newDir = new Dir(new Dictionary<string, Dir>(), target, currentDir, new List<FsFile>());
+												currentDir.Directories.Add(newDir.Name, newDir);
+												currentDir = newDir;
+												break;
+											}
+									}
+									break;
+							}
+							break;
 						}
-						break;
 
 					case "dir":
 						break;
@@ -97,3 +99,5 @@ namespace Day7_2
 
 	internal record struct FsFile(string Name, int Size);
 }
+
+// Directories in stack for parsing + on pop, add to parent + pop at the end
