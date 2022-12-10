@@ -1,4 +1,6 @@
-﻿var input = File.ReadAllLines(Path.Combine(Directory.GetCurrentDirectory(), "input.txt"));
+﻿using Day8_1;
+
+var input = File.ReadAllLines(Path.Combine(Directory.GetCurrentDirectory(), "input.txt"));
 
 var spottedTrees = new HashSet<Point>();
 
@@ -76,4 +78,7 @@ var outerRing = (input.Length + input[0].Length) * 2 - 4;
 Console.WriteLine(outerRing + spottedTrees.Count);
 Console.ReadLine();
 
-record Point(int X, int Y);
+namespace Day8_1
+{
+	record Point(int X, int Y);
+}

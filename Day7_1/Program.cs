@@ -1,4 +1,6 @@
-﻿var input = File.ReadAllLines(Path.Combine(Directory.GetCurrentDirectory(), "input.txt"));
+﻿using Day7_1;
+
+var input = File.ReadAllLines(Path.Combine(Directory.GetCurrentDirectory(), "input.txt"));
 
 var fileSystem = new Dictionary<string, Dir>();
 var currentDir = new Dir(new Dictionary<string, Dir>(), "/", null, new List<FsFile>());
@@ -29,12 +31,12 @@ foreach (var line in input)
 							break;
 
 						default:
-							{
-								var newDir = new Dir(new Dictionary<string, Dir>(), target, currentDir, new List<FsFile>());
-								currentDir!.Directories.Add(newDir.Name, newDir);
-								currentDir = newDir;
-								break;
-							}
+						{
+							var newDir = new Dir(new Dictionary<string, Dir>(), target, currentDir, new List<FsFile>());
+							currentDir!.Directories.Add(newDir.Name, newDir);
+							currentDir = newDir;
+							break;
+						}
 					}
 					break;
 			}
@@ -70,9 +72,12 @@ CalculateSmallDir(baseDir);
 Console.WriteLine(smallDirs.Sum(x => x.Size));
 Console.ReadLine();
 
-internal record Dir(Dictionary<string, Dir> Directories, string Name, Dir Parent, List<FsFile> Files)
+namespace Day7_1
 {
-	public int Size => Directories.Values.Select(x => x.Size).Sum() + Files.Select(x => x.Size).Sum();
-}
+	internal record Dir(Dictionary<string, Dir> Directories, string Name, Dir Parent, List<FsFile> Files)
+	{
+		public int Size => Directories.Values.Select(x => x.Size).Sum() + Files.Select(x => x.Size).Sum();
+	}
 
-internal record FsFile(string Name, int Size);
+	internal record FsFile(string Name, int Size);
+}
