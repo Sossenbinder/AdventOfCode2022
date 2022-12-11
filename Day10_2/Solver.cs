@@ -24,6 +24,7 @@ namespace Day10_2
 					case "noop":
 						cpu.Noop();
 						break;
+
 					case "addx":
 						cpu.AddX(int.Parse(input[5..]));
 						break;
@@ -38,7 +39,7 @@ namespace Day10_2
 
 		private int _cycleCounter;
 		private int _register;
-		
+
 		private const int CounterModulo = 40;
 
 		private Queue<char> _crtRow;
@@ -74,7 +75,7 @@ namespace Day10_2
 			}
 
 			PrintSprite();
-			_crtRow = new();
+			_crtRow.Clear();
 		}
 
 		private void HandleSprite()
@@ -90,10 +91,7 @@ namespace Day10_2
 		{
 			while (_crtRow.TryDequeue(out var result))
 			{
-				Console.Write(result);
 			}
-
-			Console.WriteLine();
 		}
 	}
 }

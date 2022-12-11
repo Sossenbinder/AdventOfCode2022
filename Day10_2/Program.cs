@@ -1,3 +1,4 @@
-﻿using Day10_2;
+﻿using BenchmarkDotNet.Running;
+using Day10_2;
 
-new Solver().Solve();
+BenchmarkRunner.Run<Solver>();
