@@ -116,7 +116,7 @@ namespace Day9_2
 
 #if VISUALIZATION
 				Console.Clear();
-				//VisualizeHead(new List<Point>() { headPoint });
+				//VisualizeHead(new ListItem<Point>() { headPoint });
 				//Console.WriteLine();
 				var pointList = tailPositions.ToList();
 				pointList.Add(headPoint);
