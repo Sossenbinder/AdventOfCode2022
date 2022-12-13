@@ -67,7 +67,7 @@ namespace Day13_2
 			}
 		}
 
-		private IItem Parse(string line)
+		private static IItem Parse(string line)
 		{
 			var item = new ListItem(new List<IItem>());
 
@@ -124,7 +124,7 @@ namespace Day13_2
 			return item;
 		}
 
-		private Result Compare(IItem left, IItem right)
+		private static Result Compare(IItem left, IItem right)
 		{
 			if (left is IntegerItem leftInt && right is IntegerItem rightInt)
 			{
