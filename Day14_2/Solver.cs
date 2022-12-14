@@ -110,7 +110,7 @@ namespace Day14_2
 				}
 			}
 
-			var minX = 0;//rockPoints.Min(x => x.X);
+			var minX = rockPoints.Min(x => x.X);
 			var maxX = rockPoints.MaxBy(x => x.X).X - minX;
 			var maxY = rockPoints.MaxBy(x => x.Y).Y + 2;
 

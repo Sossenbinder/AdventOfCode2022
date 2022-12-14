@@ -1,4 +1,5 @@
-﻿using Day14_2;
+﻿// See https://aka.ms/new-console-template for more information
 
-//BenchmarkRunner.Run<Solver>();
+using Day14_2;
+
 new Solver(true).Solve();
