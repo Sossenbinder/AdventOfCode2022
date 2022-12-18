@@ -1,7 +1,6 @@
-﻿using System.Collections;
-using BenchmarkDotNet.Attributes;
+﻿using BenchmarkDotNet.Attributes;
 
-namespace Day14_2
+namespace Day16_1
 {
 	[MemoryDiagnoser]
 	public class Solver
